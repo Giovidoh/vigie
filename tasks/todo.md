@@ -6,7 +6,6 @@
 ## In Progress
 
 ## To Do
-- [ ] Signaler dans les Limitations du README que l'application de bureau replie le `systemMessage` (avertissements Modéré et Support peu visibles)
 - [ ] Phase 2 : petit modèle local pour le texte
 
 ## Done
@@ -23,6 +22,7 @@
 - [x] Dépôt publié sur GitHub (Giovidoh/vigie)
 - [x] Installation depuis la marketplace GitHub testée
 - [x] Vérifié en réel dans l'application de bureau, plugin installé depuis la marketplace : blocage Critique (sans `!jassume` proposé), blocage Élevé (avec `!jassume` proposé) et envoi forcé avec `!jassume`
+- [x] Limitation ajoutée au README : l'application de bureau replie le `systemMessage` (avertissements Modéré et Support peu visibles)
 
 ## Blocked
 - [!] Décider du positionnement Enterprise (inference hooks) — en attente : un prompt refusé par un inference hook est-il quand même analysé par les systèmes de sécurité d'Anthropic ? La doc publique ne le dit pas (recherche du 2026-10-25) ; question à poser à Anthropic

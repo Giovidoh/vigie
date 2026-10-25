@@ -110,6 +110,7 @@ Vigie is a guardrail, not a compliance guarantee.
 * **It does not replace the provider's policy.** Its rules approximate a provider's usage policy. Always refer to the official text, such as [Anthropic's Usage Policy](https://www.anthropic.com/legal/aup).
 * **Images pasted directly into the chat cannot be checked.** Hooks only receive the prompt text. Image files that the assistant reads, or that you reference with `@`, can be checked *(planned)*.
 * **Each prompt is checked on its own**, without the conversation's context.
+* **Warnings are easy to miss in the Claude desktop app.** Blocks are shown in full, but the app folds the notices for Moderate and Support prompts into the turn's activity line ("received a notice"). The terminal shows them directly.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
