@@ -6,8 +6,7 @@
 ## In Progress
 
 ## To Do
-- [ ] Publier le dépôt sur GitHub (Giovidoh/vigie)
-- [ ] Tester l'installation depuis la marketplace GitHub (`claude plugin marketplace add Giovidoh/vigie`)
+- [ ] Signaler dans les Limitations du README que l'application de bureau replie le `systemMessage` (avertissements Modéré et Support peu visibles)
 - [ ] Phase 2 : petit modèle local pour le texte
 
 ## Done
@@ -21,7 +20,9 @@
 - [x] Phase 1 : 51 tests (`npm test`), dont des prompts proches des règles pour limiter les faux positifs
 - [x] Phase 1 : plugin et marketplace validés (`claude plugin validate .`)
 - [x] Phase 1 fusionnée dans `main` (fast-forward)
-- [x] Vérifié en réel dans l'application de bureau : blocage Critique (sans `!jassume` proposé) et envoi forcé avec `!jassume` au niveau Élevé
+- [x] Dépôt publié sur GitHub (Giovidoh/vigie)
+- [x] Installation depuis la marketplace GitHub testée
+- [x] Vérifié en réel dans l'application de bureau, plugin installé depuis la marketplace : blocage Critique (sans `!jassume` proposé), blocage Élevé (avec `!jassume` proposé) et envoi forcé avec `!jassume`
 
 ## Blocked
 - [!] Décider du positionnement Enterprise (inference hooks) — en attente : un prompt refusé par un inference hook est-il quand même analysé par les systèmes de sécurité d'Anthropic ? La doc publique ne le dit pas (recherche du 2026-10-25) ; question à poser à Anthropic
