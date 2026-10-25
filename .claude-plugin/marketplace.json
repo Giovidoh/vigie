@@ -1,0 +1,15 @@
+{
+  "name": "vigie",
+  "description": "Vigie: a local pre-check that warns you before a risky prompt is sent.",
+  "owner": {
+    "name": "Giovidoh",
+    "url": "https://github.com/Giovidoh"
+  },
+  "plugins": [
+    {
+      "name": "vigie",
+      "source": "./",
+      "description": "Warns you before a prompt that may break the AI provider's usage policy is sent. Local and private."
+    }
+  ]
+}

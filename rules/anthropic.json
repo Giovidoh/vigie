@@ -1,0 +1,154 @@
+{
+  "provider": "Anthropic",
+  "policyUrl": "https://www.anthropic.com/legal/aup",
+  "rules": [
+    {
+      "id": "child-sexual-content",
+      "category": "child-safety",
+      "level": "critical",
+      "allOf": [
+        "\\b(enfants?|mineure?s?|fillettes?|garconnets?|ados?|adolescente?s?|collegiene?s?|ecolieres?|child(ren)?|minors?|kids?|teens?|teenagers?|underage|(1[0-7]|[1-9]) ?(ans|years? old|yo))\\b",
+        "\\b(sexuel(le)?s?|porno\\w*|pornograph\\w*|erotique\\w*|nue?s?|nudes?|nudite|nudity|nsfw|sexual(ly)?|sexy|sexualis\\w*|sexualiz\\w*)\\b"
+      ],
+      "unless": "\\b(prevention|prevenir|protection|proteger|protect\\w*|signal\\w+|report\\w*|education sexuelle|sex education|sensibilis\\w+|awareness|victimes?|detect\\w+|moderation)\\b",
+      "unlessLevel": "high"
+    },
+    {
+      "id": "csam-terms",
+      "category": "child-safety",
+      "level": "critical",
+      "anyOf": [
+        "\\b(pedopornograph\\w*|pedocriminel\\w*|lolicon|shotacon|csam|child porn\\w*)\\b"
+      ],
+      "unless": "\\b(prevention|prevenir|protection|proteger|protect\\w*|signal\\w+|report\\w*|sensibilis\\w+|awareness|victimes?|detect\\w+|moderation)\\b",
+      "unlessLevel": "high"
+    },
+    {
+      "id": "explicit-sexual-content",
+      "category": "sexual-content",
+      "level": "high",
+      "anyOf": [
+        "\\b(porno\\w*|pornograph\\w*|hentai|nsfw|smut)\\b",
+        "\\b(scene|histoire|recit|roleplay|jeu de role|story|fanfic\\w*)\\b.{0,40}\\b(sexe|sexuelle?s?|erotique|cul|sexual|erotic|sexy)\\b",
+        "\\b(sexe explicite|explicit sex|contenu adulte|adult content)\\b"
+      ]
+    },
+    {
+      "id": "cbrn-agents",
+      "category": "cbrn-weapons",
+      "level": "critical",
+      "allOf": [
+        "\\b(fabriqu\\w+|cultiv\\w+|militaris\\w+|weaponi[sz]\\w*|recette|recipe|how to (make|produce|obtain|synthesi[sz]e)|comment (faire|fabriquer|produire|obtenir))\\b",
+        "\\b(sarin|tabun|soman|agent vx|vx (gas|nerve)|ricine?|anthrax|charbon bacteridien|toxine botulique|botulinum|variole|smallpox|agents? neurotoxiques?|nerve agents?|uranium enrichi|enriched uranium|bombe sale|dirty bomb)\\b"
+      ]
+    },
+    {
+      "id": "cbrn-weapons",
+      "category": "cbrn-weapons",
+      "level": "high",
+      "allOf": [
+        "\\b(fabriqu\\w+|cultiv\\w+|militaris\\w+|weaponi[sz]\\w*|recette|recipe|how to (make|produce|obtain|build)|comment (faire|fabriquer|produire|obtenir))\\b",
+        "\\b(armes? (chimiques?|biologiques?|nucleaires?|radiologiques?)|(chemical|biological|nuclear|radiological) weapons?|bioweapons?)\\b"
+      ]
+    },
+    {
+      "id": "explosives",
+      "category": "weapons",
+      "level": "high",
+      "allOf": [
+        "\\b(fabriqu\\w+|construire|assembler|recette|recipe|how to (make|build)|comment (faire|fabriquer|construire))\\b",
+        "\\b(bombes?|bombs?|explosifs?|explosives?|tatp|nitroglycerine|engins? explosifs?|pipe bombs?|ied|cocktails? molotov|molotov cocktails?|armes? imprimees?|3d.printed guns?|ghost guns?)\\b"
+      ]
+    },
+    {
+      "id": "malware-creation",
+      "category": "malware",
+      "level": "high",
+      "allOf": [
+        "\\b(ecri\\w*|code\\w*|cree\\w*|creer|developpe\\w*|genere\\w*|write|build|create|develop|generate|make)\\b",
+        "\\b(ransomwares?|rancongiciels?|keyloggers?|enregistreurs? de frappe|botnets?|infostealers?|stealers?|rootkits?|chevaux de troie|cheval de troie|trojans?|vers informatiques?|computer worms?)\\b"
+      ]
+    },
+    {
+      "id": "security-evasion",
+      "category": "malware",
+      "level": "high",
+      "anyOf": [
+        "\\b(contourn\\w+|echapper a|bypass\\w*|evad\\w+)\\b.{0,25}\\b(antivirus|anti-virus|edr|defender|detection antivirus|av detection)\\b",
+        "\\b(lancer|faire|mener|launch|run|perform)\\b.{0,20}\\b(ddos|attaques? par deni de service|denial.of.service attacks?)\\b"
+      ]
+    },
+    {
+      "id": "jailbreak",
+      "category": "safeguard-circumvention",
+      "level": "high",
+      "anyOf": [
+        "\\b(ignore|oublie)\\w*\\s+(toutes?\\s+)?(tes|vos)\\s+(instructions|regles|consignes|directives)\\b",
+        "\\bignore\\s+(all\\s+)?(of\\s+)?(your|previous|prior|the previous|the above)\\s+(instructions|rules|guidelines)\\b",
+        "\\b(do anything now|dan mode)\\b",
+        "\\b(fais|faites) comme si (tu n.?avais|vous n.?aviez) (pas|aucune) (de )?(regles|limites|restrictions)\\b",
+        "\\bpretend (that )?you (have|had) no (rules|restrictions|limits|guidelines)\\b"
+      ]
+    },
+    {
+      "id": "unfiltered-request",
+      "category": "safeguard-circumvention",
+      "level": "moderate",
+      "anyOf": [
+        "\\bsans (aucune? )?(restrictions?|censure|filtres?|limites?)\\b",
+        "\\b(uncensored|unfiltered|no restrictions)\\b",
+        "\\bjailbreak\\w*\\b"
+      ]
+    },
+    {
+      "id": "forged-documents",
+      "category": "fraud",
+      "level": "high",
+      "anyOf": [
+        "\\b(faux|fausses?)\\b.{0,10}\\b(papiers|passeports?|permis|diplomes?|billets?|factures?|fiches? de paie|bulletins? de salaire|cartes? d.identite|ordonnances?|releves? bancaires?)\\b",
+        "\\b(fake|forged?|counterfeit)\\s+(ids?|passports?|driver.?s? licen[cs]es?|diplomas?|invoices?|pay ?stubs?|prescriptions?|bank statements?|banknotes?|money)\\b",
+        "\\b(faux avis|fake reviews?|cartes? bancaires? volees?|stolen credit cards?|carding)\\b"
+      ],
+      "unless": "\\b(tests?|unitaires?|fixtures?|seeds?|mocks?|demo|donnees fictives|dummy|sample data|placeholder)\\b",
+      "unlessLevel": "moderate"
+    },
+    {
+      "id": "phishing",
+      "category": "fraud",
+      "level": "moderate",
+      "anyOf": [
+        "\\b(phishing|hameconnage|spear.?phishing)\\b"
+      ]
+    },
+    {
+      "id": "surveillance",
+      "category": "surveillance",
+      "level": "moderate",
+      "anyOf": [
+        "\\b(trouv|retrouv|localis|find|locate)\\w*\\b.{0,20}\\b(l.?adresse (personnelle|du domicile|de (mon|ma|son|sa|cette personne))|domicile|ou (il|elle) habite|home address|where (he|she|they) lives?)\\b",
+        "\\bespionn\\w+\\b.{0,25}\\b(telephone|messages|whatsapp|conjoint|femme|mari|copine|copain|employes?)\\b",
+        "\\bspy(ing)? on (my|his|her|their)\\b",
+        "\\bsans qu.?(il|elle|ils|elles) (ne )?(le )?sache(nt)?\\b",
+        "\\bwithout (him|her|them) knowing\\b",
+        "\\bdox(x)?(ing|er|ed)?\\b"
+      ]
+    },
+    {
+      "id": "harm-to-others",
+      "category": "violence",
+      "level": "high",
+      "anyOf": [
+        "\\bcomment\\b.{0,15}\\b(tuer|empoisonner|blesser|assassiner)\\b.{0,15}\\b(quelqu.un|une personne|mon (mari|voisin|patron|collegue|pere|frere|ex)|ma (femme|voisine|mere|soeur|patronne|collegue|ex))\\b",
+        "\\bhow (to|do i|can i)\\b.{0,15}\\b(kill|poison|hurt|murder)\\b.{0,15}\\b(someone|somebody|a person|my (wife|husband|neighbou?r|boss|coworker|father|mother|brother|sister|ex))\\b"
+      ]
+    },
+    {
+      "id": "self-harm",
+      "category": "self-harm",
+      "level": "support",
+      "anyOf": [
+        "\\b(suicid\\w*|me tuer|mettre fin a mes jours|en finir avec la vie|envie d.en finir|me faire du mal|m.automutil\\w*|automutil\\w*|self.?harm\\w*|kill myself|end my life|hurt myself)\\b"
+      ]
+    }
+  ]
+}

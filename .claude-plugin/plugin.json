@@ -1,0 +1,14 @@
+{
+  "name": "vigie",
+  "displayName": "Vigie",
+  "version": "0.1.0",
+  "description": "Warns you before a prompt that may break the AI provider's usage policy is sent. Local and private.",
+  "author": {
+    "name": "Giovidoh",
+    "url": "https://github.com/Giovidoh"
+  },
+  "homepage": "https://github.com/Giovidoh/vigie",
+  "repository": "https://github.com/Giovidoh/vigie",
+  "license": "Apache-2.0",
+  "keywords": ["usage-policy", "moderation", "guardrail", "compliance", "hooks"]
+}

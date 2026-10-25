@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/src/adapters/claude-code/user-prompt-submit.js"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
